@@ -49,7 +49,7 @@ class ProcessTicketTest : public testing::Test {
 };
 
 void expectValidData(folly::Optional<wangle::TLSTicketKeySeeds> seeds) {
-  ASSERT_TRUE(seeds);
+  ASSERT_TRUE(bool(seeds));
   ASSERT_EQ(2, seeds->newSeeds.size());
   ASSERT_EQ(1, seeds->currentSeeds.size());
   ASSERT_EQ(0, seeds->oldSeeds.size());
